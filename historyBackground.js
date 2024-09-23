@@ -32,7 +32,7 @@ window.addEventListener("scroll", () => {
         } else if (scrollRelativeToSection >= changePoint1 && scrollRelativeToSection < changePoint2) {
             backgroundImage = "url('photos/Jtown3.jpg')";
         } else if (scrollRelativeToSection >= changePoint2 && scrollRelativeToSection < changePoint3) {
-            backgroundImage = "url('photos/BuddistTemple2.jpeg')";
+            backgroundImage = "url('photos/BuddistTemple2.png')";
         } else {
             backgroundImage = "url('photos/christanchurch.png')";
         }
