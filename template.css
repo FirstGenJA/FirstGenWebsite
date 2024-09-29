@@ -236,50 +236,36 @@ nav ul li a:hover {
 }
 
 /* About Section */
-.about {
-    display: flex;
-    flex-direction: column; /* Stack image and text vertically */
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Hide overflow if content is too large */
-}
-
-
-.about-section {
-    display: flex;
-    flex-direction: row; /* Arrange items in a row */
-    align-items: center;
-    padding: 20px;
-    background-color: var(--programs-background);
-    height: auto; /* Adjust height to fit content */
-}
-
-
-
 .about-container {
     display: flex;
     flex-direction: row; /* Keep image and content side by side */
     width: 100%;
     justify-content: space-between; /* Space out the image and text evenly */
     gap: 20px; /* Add consistent gap between image and content */
+    align-items: stretch; /* Ensure the image and text match in height */
 }
 
 .about-image {
-    flex: 1; /* Take up half the width */
+    flex: 1; /* Allow the image section to take half the width */
     max-width: 50%; /* Ensure it doesn't exceed half the width */
+    height: auto; /* Ensure image stretches vertically */
 }
 
 .about-image img {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover;
+    height: 100%; /* Match the height of the text section */
+    object-fit: cover; /* Allow the image to be cropped while maintaining its aspect ratio */
     border-radius: 8px; /* Optional: Rounded corners */
 }
 
 .about-content {
-    flex: 1; /* Take up half the width */
+    flex: 1; /* Allow text to take half the width */
     padding: 20px;
     background-color: #f5f5f5; /* Light background for contrast */
     max-width: 50%; /* Limit text section width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
 }
 
 .about-title {
@@ -313,9 +299,8 @@ nav ul li a:hover {
     color: var(--text-primary);
     margin: 20px 0; /* Add equal margin above and below the text */
 }
-
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 1350px) {
     .about-section {
         flex-direction: column; /* Stack image and content vertically */
     }
