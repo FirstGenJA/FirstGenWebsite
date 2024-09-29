@@ -62,7 +62,20 @@ html {
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
+.container, .content {
+    width: 100%;
+    max-width: 100%;
+}
+img {
+    max-width: 100%; /* Ensures images resize within the container */
+}
 
 /* Global styles */
 body {
@@ -88,6 +101,13 @@ header .container {
 
 header h1 {
     font-size: 30px; /* Increased font size */
+}
+
+nav{
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul {
@@ -130,6 +150,21 @@ nav ul li a:hover {
     padding: 245px; /* Adjusted padding */
     text-align: center;
     position: relative; /* Position relative to place the overlay */
+}
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 20px; /* Reduced padding for mobile */
+    }
+
+    .hero h2 {
+        font-size: 30px; /* Adjust font size for mobile */
+    }
+
+    .hero p {
+        font-size: 18px; /* Adjust font size for mobile */
+    }
 }
 
 #Hero_content {
@@ -200,6 +235,15 @@ nav ul li a:hover {
     background-color: var(--donate-btn-hover);
 }
 
+/* About Section */
+.about {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflow if content is too large */
+}
+
+
 .about-section {
     display: flex;
     flex-direction: row; /* Arrange items in a row */
@@ -208,6 +252,8 @@ nav ul li a:hover {
     background-color: var(--programs-background);
     height: auto; /* Adjust height to fit content */
 }
+
+
 
 .about-container {
     display: flex;
@@ -268,6 +314,30 @@ nav ul li a:hover {
     margin: 20px 0; /* Add equal margin above and below the text */
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column; /* Stack image and content vertically */
+    }
+
+    .about-container {
+        flex-direction: column; /* Ensure the container stacks */
+        width: 100%; /* Full width on mobile */
+        height: auto; /* Height adjusts to content */
+    }
+
+    .about-image {
+        width: 100%; /* Full width on mobile */
+        max-width: 100%;
+    }
+
+    .about-content {
+        max-width: 100%;
+
+        padding: 10px; /* Adjust padding for mobile */
+        width: 100%; /* Full width on mobile */
+    }
+}
 
 
 /* BIO Section */
@@ -310,10 +380,17 @@ nav ul li a:hover {
 /* Grid container for the cards */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Fixed to 3 columns */
+    grid-template-columns: repeat(3, 1fr); /* Three columns for desktop */
     gap: 20px;
     padding: 20px;
 }
+/* Mobile View: Switch to a single column */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+}
+
 
 /* Card styles */
 .card {
@@ -449,9 +526,22 @@ nav ul li a:hover {
 }
 
 
+.history-section img {
+    width: 100%; /* Make the image responsive */
+    max-width: 100%; /* Prevent overflow */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Adjust how the image is resized to fill the space */
+}
 
-
-
+/* Media query for screens 400px wide or less */
+@media (max-width: 400px) {
+    .history .history-container {
+        width: 100%;
+    }
+    .right{
+        left: 0;
+    }
+}
 
 /* Events Section */
 .events-section {
@@ -655,7 +745,28 @@ button {
 }
 
 
+@media (max-width: 700px) {
+    .carousel {
+        height: auto; /* Allow carousel to adjust height */
+        min-height: 850px; /* Set a minimum height */
+        background-color: rgb(97, 97, 97);
+    }
 
+    .carousel img {
+        height: auto; /* Allow image height to adjust */
+        max-height: 40vh; /* Limit image height to 40% of viewport height */
+        width: 100%;
+    }
+
+    .carousel-text {
+        padding: 10px; /* Reduce padding for smaller screens */
+        width: 100%;
+    }
+
+    .carousel-slide {
+        flex-direction: column; /* Stack image on top of text */
+    }
+}
 
 
 
