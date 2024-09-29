@@ -95,19 +95,23 @@ header {
 
 header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Align items to the right */
     align-items: center;
+    width: 100%; /* Ensures full width */
 }
 
 header h1 {
     font-size: 30px; /* Increased font size */
+    margin-right: auto; /* Align title to the left while rest stays right */
+
 }
 
 nav{
-    width: 100%;
+    display: flex;
+    /* width: 100%;
     max-width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0; */
 }
 
 nav ul {
@@ -139,6 +143,29 @@ nav ul li a:hover {
 
 .donate-btn:hover {
     background-color: var(--donate-btn-hover);
+}
+
+@media (max-width: 768px) {
+    header .container {
+        justify-content: center; /* Center items on smaller screens */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+    }
+
+    header h1 {
+        margin-right: 0; /* Remove right margin on mobile */
+        text-align: center; /* Center the title text */
+        width: 100%; /* Full width for centering */
+    }
+
+    nav {
+        justify-content: center; /* Center navigation links on mobile */
+        margin-top: 10px; /* Add spacing between title and nav */
+    }
+
+    nav ul {
+        display: flex; /* Ensure flex display for navigation links */
+    }
 }
 
 /* Hero Section */
@@ -398,7 +425,6 @@ nav ul li a:hover {
     transform: translateY(-10px);
 }
 
-/* Image styles */
 /* Image styles */
 .card-img {
     width: 100%;
