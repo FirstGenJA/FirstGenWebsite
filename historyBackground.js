@@ -3,6 +3,22 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         heroContent.classList.add("show-hero-content");
     }, 200); // 200ms delay
+
+    // Preload background images
+    preloadImages([
+        'photos/Jtown1.jpg',
+        'photos/Jtown3.jpg',
+        'photos/BuddistTemple2.jpeg',
+        'photos/christanchurch.jpeg'
+    ]);
+
+    // Preload carousel images (if they are different from background images)
+    preloadImages([
+        'carousel-image-1.jpg',
+        'carousel-image-2.jpg',
+        'carousel-image-3.jpg'
+        // Add more images if needed
+    ]);
 });
 
 
