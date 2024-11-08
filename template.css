@@ -400,7 +400,6 @@ nav ul li a:hover {
 }
 
 /* Grid container for the cards */
-/* BIO Section */
 .bio {
     padding: 60px 20px; /* Added padding for better spacing */
     background-color: var(--programs-background);
@@ -607,6 +606,20 @@ nav ul li a:hover {
         left: 0;
     }
 }
+
+
+.section-divider {
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px); /* Slightly offset */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+.section-divider.animate {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide into place */
+}
+
+
 
 /* Events Section */
 .events-section {
