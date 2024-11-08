@@ -3,22 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         heroContent.classList.add("show-hero-content");
     }, 200); // 200ms delay
-
-    // Preload background images
-    preloadImages([
-        'photos/Jtown1.jpg',
-        'photos/Jtown3.jpg',
-        'photos/BuddistTemple2.jpeg',
-        'photos/christanchurch.jpeg'
-    ]);
-
-    // Preload carousel images (if they are different from background images)
-    preloadImages([
-        'carousel-image-1.jpg',
-        'carousel-image-2.jpg',
-        'carousel-image-3.jpg'
-        // Add more images if needed
-    ]);
 });
 
 
@@ -43,14 +27,18 @@ window.addEventListener("scroll", () => {
         let backgroundImage = "";
         let backgroundPosition = "center";
 
+        if (window.innerWidth <= 400) { // Check if the viewport width is 400px or less
+            backgroundSize = "1%"; // Zoom out the image
+        }
+
         if (scrollRelativeToSection >= 0 && scrollRelativeToSection < changePoint1) {
             backgroundImage = "url('photos/Jtown1.jpg')";
         } else if (scrollRelativeToSection >= changePoint1 && scrollRelativeToSection < changePoint2) {
             backgroundImage = "url('photos/Jtown3.jpg')";
         } else if (scrollRelativeToSection >= changePoint2 && scrollRelativeToSection < changePoint3) {
-            backgroundImage = "url('photos/BuddistTemple2.jpeg')";
+            backgroundImage = "url('photos/BuddistTemple2.png')";
         } else {
-            backgroundImage = "url('photos/christanchurch.jpeg')";
+            backgroundImage = "url('photos/christanchurch.png')";
         }
 
         historySection.style.backgroundImage = backgroundImage;
@@ -97,6 +85,26 @@ function changeSlide(n) {
     slideIndex = (slideIndex + n + slides.length) % slides.length;
     showSlides();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const sectionDivider = document.querySelector(".section-divider");
+
+    function animateOnScroll() {
+        const sectionTop = sectionDivider.getBoundingClientRect().top;
+        const viewportHeight = window.innerHeight;
+
+        if (sectionTop < viewportHeight * 0.9) { // Adjust for earlier/later animations
+            sectionDivider.classList.add("animate");
+            window.removeEventListener("scroll", animateOnScroll); // Trigger only once
+        }
+    }
+
+    window.addEventListener("scroll", animateOnScroll);
+    animateOnScroll(); // Check immediately in case it's already in view
+});
+
+
+
 
 // Initialize
 showSlides();
