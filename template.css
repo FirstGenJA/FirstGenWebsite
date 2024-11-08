@@ -81,7 +81,6 @@ img {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: var(--text-primary);
 }
 
 /* Header */
@@ -179,6 +178,7 @@ nav ul li a:hover {
     position: relative; /* Position relative to place the overlay */
 }
 
+
 /* Mobile specific styles */
 @media (max-width: 768px) {
     .hero {
@@ -196,7 +196,12 @@ nav ul li a:hover {
 
 #Hero_content {
     padding-bottom: 2rem;
-    color: var(--text-primary);
+    color: white;
+    text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000, 
+    -1px 1px 0 #000, 
+    1px 1px 0 #000;
 }
 
 /* Overlay to ensure text readability */
@@ -326,6 +331,23 @@ nav ul li a:hover {
     color: var(--text-primary);
     margin: 20px 0; /* Add equal margin above and below the text */
 }
+
+#bioHeader {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#bioHeader::before,
+#bioHeader::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid black;
+    margin: 0 1rem; /* Adjust space between text and lines */
+}
+
+
 /* Mobile Styles */
 @media (max-width: 1350px) {
     .about-section {
@@ -462,6 +484,31 @@ nav ul li a:hover {
     position: relative; /* Set the parent container to relative positioning */
     padding: 60px 20px; /* Added padding for better spacing */
     color: black;
+}
+
+/* Section Divider and Header Styling */
+.section-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#historyHeader {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0 1rem; /* Spacing between lines and text */
+    position: relative;
+    z-index: 2;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    border-top: 2px solid #333; /* Line color and thickness */
+    margin: 0 1rem;
 }
 
 /* Vertical line styling */
