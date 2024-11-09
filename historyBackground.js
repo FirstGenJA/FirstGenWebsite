@@ -1,3 +1,30 @@
+function preloadImages() {
+    const images = document.querySelectorAll("img");
+    const totalImages = images.length;
+    let imagesLoaded = 0;
+
+    // Track loaded images
+    images.forEach(img => {
+        if (img.complete) {
+            incrementCounter();
+        } else {
+            img.addEventListener("load", incrementCounter);
+            img.addEventListener("error", incrementCounter); // To account for failed loads
+        }
+    });
+
+    function incrementCounter() {
+        imagesLoaded++;
+        if (imagesLoaded === totalImages) {
+            showContent();
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    preloadImages();
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     const heroContent = document.getElementById("Hero_content");
     setTimeout(function() {
